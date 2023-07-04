@@ -7,26 +7,10 @@
 </template>
 
 <script setup>
-import { inject, onMounted, ref } from "vue";
 import ProjectPreview from "@/components/Project/ProjectPreview";
+import { useContentful } from "@/composables/contentful";
 
-const contentfulClientApi = inject("contentfulClientApi");
-
-let projects = ref([]);
-
-async function getProjects() {
-  const entries = await contentfulClientApi.getEntries();
-
-  return entries.items.filter(
-    (item) => item.sys.contentType.sys.id === "project"
-  );
-}
-
-onMounted(async () => {
-  const queryProjects = await getProjects();
-  console.log(queryProjects);
-  projects.value = queryProjects;
-});
+const { projects } = useContentful();
 </script>
 
 <style scoped></style>
