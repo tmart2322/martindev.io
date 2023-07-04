@@ -9,9 +9,6 @@
 
 <script setup>
 import { inject, onMounted, ref, computed } from "vue";
-import { useRoute } from "vue-router";
-
-const route = useRoute();
 
 const contentfulClientApi = inject("contentfulClientApi");
 
@@ -33,20 +30,6 @@ const menuItems = computed(() => {
       to: "/about",
     },
   ];
-
-  for (const item of items) {
-    item.class = "";
-    if (
-      item.to.length > 1
-        ? route.path.includes(item.to)
-        : route.path.length === 1
-    ) {
-      item.class += " custom-active-link";
-    }
-    if (item.items) {
-      item.class += " custom-sub-menu";
-    }
-  }
 
   return items;
 });

@@ -6,7 +6,7 @@ import Menubar from "primevue/menubar";
 import Card from "primevue/card";
 import Button from "primevue/button";
 import "primeicons/primeicons.css";
-import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/themes/viva-dark/theme.css";
 import "primeflex/primeflex.css";
 import "./assets/css/primeVueOverrides.css";
 import { createClient } from "contentful";
@@ -21,7 +21,7 @@ const contentfulClientApi = createClient({
 app.provide("contentfulClientApi", contentfulClientApi);
 
 app.use(router);
-app.use(PrimeVue, { ripple: true });
+app.use(PrimeVue);
 
 app.component("Menubar", Menubar);
 app.component("Card", Card);

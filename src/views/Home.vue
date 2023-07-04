@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="type-text">{{ welcomeText }}</h2>
+    <p class="text-lg text-center">{{ welcomeText }}</p>
     <ProjectPreviews />
   </div>
 </template>
@@ -20,8 +20,8 @@ function typeText() {
     setTimeout(
       typeText,
       new Set([",", "!", "."]).has(nextChar)
-        ? 250
-        : Math.floor(Math.random() * 20) + 40
+        ? 150
+        : Math.floor(Math.random() * 15) + 20
     );
   }
 }
@@ -31,11 +31,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-.type-text {
-  margin: 1em;
-  text-align: center;
-  font-weight: normal;
-  font-family: Baskerville, serif;
-}
-</style>
+<style scoped></style>

@@ -26,6 +26,7 @@
 <script setup>
 import { defineProps, inject, onMounted, ref, computed } from "vue";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { convertDateToMonthYear } from "@/composables/sharedFunctions";
 
 const contentfulClientApi = inject("contentfulClientApi");
 
@@ -36,18 +37,9 @@ const props = defineProps({
 });
 
 const dateString = computed(() => {
-  const startDate = new Date(project.value.fields.startDate).toLocaleDateString(
-    "en-us",
-    {
-      year: "numeric",
-      month: "long",
-    }
-  );
+  const startDate = convertDateToMonthYear(project.value.fields.startDate);
   const endDate = project.value.fields.endDate
-    ? new Date(project.value.fields.endDate).toLocaleDateString("en-us", {
-        year: "numeric",
-        month: "long",
-      })
+    ? convertDateToMonthYear(project.value.fields.startDate)
     : "Current";
   return `Start Date: ${startDate} | End Date: ${endDate}`;
 });

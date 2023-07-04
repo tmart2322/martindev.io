@@ -1,14 +1,5 @@
-/* Overrides for MenuBar subitems */
-.p-menubar-root-list > .p-menuitem:hover > .p-submenu-list {
-    display: block;
-}
-
-.p-ink-active {
-    display: none;
-}
-
 /* Overrides for text fonts */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin-top: .5em;
     margin-bottom: .5em;
