@@ -1,13 +1,21 @@
 <template>
   <div>
     <p class="text-xl text-center m-4">{{ welcomeText }}</p>
-    <ProjectsPreviewCarousel />
+    <div class="mx-4">
+      <Card :class="wrapperCardClasses">
+        <template #title>Consulting Projects</template>
+        <template #content><ProjectsPreviewCarousel /></template>
+      </Card>
+    </div>
   </div>
 </template>
 
 <script setup>
 import ProjectsPreviewCarousel from "@/components/Project/ProjectsPreviewCarousel";
 import { ref, onMounted } from "vue";
+
+const wrapperCardClasses =
+  "bg-primary-reverse border-50 border-2 border-round-xl m-2 text-center";
 
 const welcomeText = ref("");
 const welcomeTextComplete =

@@ -28,11 +28,11 @@ watch(isLoaded, (currentValue) => {
     const projectMenuItems = projects.value.map((queryProject) => {
       return {
         label: queryProject.fields.projectName,
-        to: `/projects/${queryProject.sys.id}`,
+        to: `/consulting/${queryProject.sys.id}`,
       };
     });
     projectMenuItems.unshift(
-      { label: "All Projects", to: "/projects" },
+      { label: "All Projects", to: "/consulting" },
       { separator: true }
     );
     menuItems.value = [
@@ -41,7 +41,7 @@ watch(isLoaded, (currentValue) => {
         to: "/",
       },
       {
-        label: "Projects",
+        label: "Consulting",
         items: projectMenuItems,
       },
       {

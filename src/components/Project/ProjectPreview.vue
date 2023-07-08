@@ -33,7 +33,7 @@
     </template>
     <template #footer>
       <Button
-        class="align-self-end mt-auto"
+        class="align-self-end mt-auto cursor-pointer"
         label="View Project"
         @click="goToProject(props.project.sys.id)"
       />

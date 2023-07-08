@@ -33,7 +33,7 @@ const contentfulClientApi = inject("contentfulClientApi");
 let project = ref(null);
 
 const props = defineProps({
-  projectId: String,
+  consultingProjectId: String,
 });
 
 const dateString = computed(() => {
@@ -44,12 +44,12 @@ const dateString = computed(() => {
   return `Start Date: ${startDate} | End Date: ${endDate}`;
 });
 
-async function getProject(projectId) {
-  return await contentfulClientApi.getEntry(projectId);
+async function getProject(consultingProjectId) {
+  return await contentfulClientApi.getEntry(consultingProjectId);
 }
 
 onMounted(async () => {
-  project.value = await getProject(props.projectId);
+  project.value = await getProject(props.consultingProjectId);
 });
 </script>
 
