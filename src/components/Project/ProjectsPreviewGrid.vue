@@ -1,7 +1,7 @@
 <template>
-  <div class="grid">
+  <div class="grid mx-3 mt-2">
     <div
-      class="sm:col-12 lg:col-6 xl:col-4"
+      class="sm:col-12 lg:col-6 xl:col-4 mb-3"
       v-for="project in projects"
       :key="project.sys.id"
     >

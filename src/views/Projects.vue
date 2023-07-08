@@ -1,9 +1,9 @@
 <template>
   <div>
-    <ProjectsPreview />
+    <ProjectsPreviewGrid />
   </div>
 </template>
 
 <script setup>
-import ProjectsPreview from "@/components/Project/ProjectsPreview";
+import ProjectsPreviewGrid from "@/components/Project/ProjectsPreviewGrid";
 </script>
