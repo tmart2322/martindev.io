@@ -6,6 +6,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title: "Portfolio",
+    },
   },
   {
     path: "/about",
@@ -15,6 +18,9 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    meta: {
+      title: "About",
+    },
   },
   {
     path: "/consulting/",
@@ -25,6 +31,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ConsultingProjects.vue"),
     props: true,
+    meta: {
+      title: "Consulting Projects",
+    },
   },
   {
     path: "/consulting/:consultingProjectId",
@@ -35,6 +44,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ConsultingProject.vue"),
     props: true,
+    meta: {
+      title: "Consulting Project",
+    },
   },
 ];
 

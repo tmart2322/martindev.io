@@ -1,6 +1,6 @@
 <template>
   <Carousel
-    :value="projects"
+    :value="consultingProjects"
     :numVisible="3"
     :numScroll="3"
     :responsiveOptions="responsiveOptions"
@@ -19,7 +19,7 @@ import ProjectPreview from "@/components/Project/ProjectPreview";
 import { useContentful } from "@/composables/contentful";
 import { ref } from "vue";
 
-const { projects } = useContentful();
+const { consultingProjects } = useContentful();
 
 const responsiveOptions = ref([]);
 </script>

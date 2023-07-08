@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p class="text-xl text-center m-4">{{ welcomeText }}</p>
-    <div class="mx-4">
+    <p class="text-xl text-center mx-5">{{ welcomeText }}</p>
+    <div class="mx-4 my-5">
       <Card :class="wrapperCardClasses">
         <template #title>Consulting Projects</template>
         <template #content><ProjectsPreviewCarousel /></template>

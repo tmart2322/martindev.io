@@ -1,7 +1,7 @@
 import { inject, ref } from "vue";
 
 export function useContentful() {
-  const projects = ref(null);
+  const consultingProjects = ref(null);
   const isLoaded = ref(null);
 
   const contentfulClientApi = inject("contentfulClientApi");
@@ -9,7 +9,7 @@ export function useContentful() {
   const getContent = async () => {
     try {
       const entries = await contentfulClientApi.getEntries();
-      projects.value = entries.items.filter(
+      consultingProjects.value = entries.items.filter(
         (item) => item.sys.contentType.sys.id === "project"
       );
     } catch (e) {
@@ -21,5 +21,5 @@ export function useContentful() {
 
   getContent();
 
-  return { projects, isLoaded };
+  return { consultingProjects, isLoaded };
 }

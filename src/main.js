@@ -21,6 +21,10 @@ const contentfulClientApi = createClient({
 
 app.provide("contentfulClientApi", contentfulClientApi);
 
+const DEFAULT_TITLE = "Tristan Martin";
+router.afterEach((to) => {
+  document.title = `${DEFAULT_TITLE} - ${to.meta.title}`;
+});
 app.use(router);
 app.use(PrimeVue);
 

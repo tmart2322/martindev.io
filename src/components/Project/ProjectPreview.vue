@@ -1,6 +1,6 @@
 <template>
   <Card
-    class="border-1 surface-border border-round m-2 text-center py-5 px-3 flex-auto h-full"
+    class="border-1 surface-border border-round-md m-2 text-center py-5 px-3 flex-auto h-full"
     :pt="{
       body: {
         class: 'flex justify-content-center flex-column h-full',
@@ -64,7 +64,7 @@ const dateString = computed(() => {
 });
 
 function goToProject(projectId) {
-  router.push({ path: `/projects/${projectId}` });
+  router.push({ path: `/consulting/${projectId}` });
 }
 </script>
 

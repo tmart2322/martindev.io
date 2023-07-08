@@ -19,13 +19,13 @@
 import { ref, watch } from "vue";
 import { useContentful } from "@/composables/contentful";
 
-const { projects, isLoaded } = useContentful();
+const { consultingProjects, isLoaded } = useContentful();
 
 let menuItems = ref([]);
 
 watch(isLoaded, (currentValue) => {
   if (currentValue) {
-    const projectMenuItems = projects.value.map((queryProject) => {
+    const projectMenuItems = consultingProjects.value.map((queryProject) => {
       return {
         label: queryProject.fields.projectName,
         to: `/consulting/${queryProject.sys.id}`,
