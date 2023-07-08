@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p class="text-lg text-center">{{ welcomeText }}</p>
-    <ProjectPreviews />
+    <p class="text-xl text-center m-4">{{ welcomeText }}</p>
+    <ProjectsPreviewCarousel />
   </div>
 </template>
 
 <script setup>
-import ProjectPreviews from "@/components/Project/ProjectPreviews";
+import ProjectsPreviewCarousel from "@/components/Project/ProjectsPreviewCarousel";
 import { ref, onMounted } from "vue";
 
 const welcomeText = ref("");

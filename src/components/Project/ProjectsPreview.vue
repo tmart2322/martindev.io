@@ -1,6 +1,10 @@
 <template>
-  <div class="grid m-1">
-    <div class="col" v-for="project in projects" :key="project.sys.id">
+  <div class="grid">
+    <div
+      class="sm:col-12 lg:col-6 xl:col-4"
+      v-for="project in projects"
+      :key="project.sys.id"
+    >
       <ProjectPreview :project="project" />
     </div>
   </div>

@@ -5,6 +5,7 @@ import PrimeVue from "primevue/config";
 import Menubar from "primevue/menubar";
 import Card from "primevue/card";
 import Button from "primevue/button";
+import Carousel from "primevue/carousel";
 import "primeicons/primeicons.css";
 import "primevue/resources/themes/viva-dark/theme.css";
 import "primeflex/primeflex.css";
@@ -26,5 +27,6 @@ app.use(PrimeVue);
 app.component("Menubar", Menubar);
 app.component("Card", Card);
 app.component("Button", Button);
+app.component("Carousel", Carousel);
 
 app.mount("#app");

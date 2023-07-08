@@ -1,5 +1,25 @@
 <template>
-  <Card>
+  <Card
+    class="border-1 surface-border border-round m-2 text-center py-5 px-3 flex-auto h-full"
+    :pt="{
+      body: {
+        class: 'flex justify-content-center flex-column h-full',
+      },
+      header: { class: 'flex flex-initial' },
+      title: {
+        class: 'flex flex-initial justify-content-center',
+      },
+      subtitle: {
+        class: 'flex flex-initial justify-content-center',
+      },
+      footer: {
+        class: 'flex flex-initial justify-content-center',
+      },
+      content: {
+        class: 'flex flex-1 justify-content-center',
+      },
+    }"
+  >
     <template #title>
       {{ props.project.fields.projectName }}
     </template>
@@ -12,7 +32,11 @@
       ></div>
     </template>
     <template #footer>
-      <Button label="View Project" @click="goToProject(props.project.sys.id)" />
+      <Button
+        class="align-self-end mt-auto"
+        label="View Project"
+        @click="goToProject(props.project.sys.id)"
+      />
     </template>
   </Card>
 </template>

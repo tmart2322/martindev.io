@@ -1,6 +1,14 @@
 <template>
   <div id="nav">
-    <Menubar :model="menuItems" :exact="true" />
+    <Menubar :model="menuItems" :exact="true"
+      ><template #start>
+        <img
+          alt="logo"
+          src="@/assets/images/LogoWhite.png"
+          height="40"
+          class="mt-1"
+        /> </template
+    ></Menubar>
   </div>
   <div id="content">
     <router-view />
