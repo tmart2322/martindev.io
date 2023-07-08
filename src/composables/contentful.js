@@ -1,6 +1,7 @@
 import { inject, ref } from "vue";
 
 export function useContentful() {
+  const blogs = ref(null);
   const consultingProjects = ref(null);
   const isLoaded = ref(null);
 
@@ -9,6 +10,9 @@ export function useContentful() {
   const getContent = async () => {
     try {
       const entries = await contentfulClientApi.getEntries();
+      blogs.value = entries.items.filter(
+        (item) => item.sys.contentType.sys.id === "blogPost"
+      );
       consultingProjects.value = entries.items.filter(
         (item) => item.sys.contentType.sys.id === "project"
       );
@@ -21,5 +25,5 @@ export function useContentful() {
 
   getContent();
 
-  return { consultingProjects, isLoaded };
+  return { blogs, consultingProjects, isLoaded };
 }

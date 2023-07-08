@@ -19,22 +19,30 @@
 import { ref, watch } from "vue";
 import { useContentful } from "@/composables/contentful";
 
-const { consultingProjects, isLoaded } = useContentful();
+const { blogs, consultingProjects, isLoaded } = useContentful();
 
 let menuItems = ref([]);
 
 watch(isLoaded, (currentValue) => {
   if (currentValue) {
-    const projectMenuItems = consultingProjects.value.map((queryProject) => {
-      return {
-        label: queryProject.fields.projectName,
-        to: `/consulting/${queryProject.sys.id}`,
-      };
-    });
-    projectMenuItems.unshift(
+    const consultingProjectMenuItems = consultingProjects.value.map(
+      (consultingProject) => {
+        return {
+          label: consultingProject.fields.projectName,
+          to: `/consulting/${consultingProject.sys.id}`,
+        };
+      }
+    );
+    consultingProjectMenuItems.unshift(
       { label: "All Projects", to: "/consulting" },
       { separator: true }
     );
+    const blogMenuItems = blogs.value.map((blog) => {
+      return {
+        label: blog.fields.blogPostName,
+        to: `/blogs/${blog.sys.id}`,
+      };
+    });
     menuItems.value = [
       {
         label: "Home",
@@ -42,7 +50,11 @@ watch(isLoaded, (currentValue) => {
       },
       {
         label: "Consulting",
-        items: projectMenuItems,
+        items: consultingProjectMenuItems,
+      },
+      {
+        label: "Blogs",
+        items: blogMenuItems,
       },
       {
         label: "About",
