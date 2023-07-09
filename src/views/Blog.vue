@@ -1,7 +1,12 @@
 <template>
   <div v-if="blog" class="mx-8 mt-4">
-    <h2 class="text-center mb-5">{{ blog.fields.blogPostName }}</h2>
-    <div v-html="documentToHtmlString(blog.fields.body)"></div>
+    <h1 class="text-center mb-5 text-primary-400">
+      {{ blog.fields.blogPostName }}
+    </h1>
+    <div
+      class="line-height-3 custom-css"
+      v-html="documentToHtmlString(blog.fields.body)"
+    ></div>
   </div>
 </template>
 

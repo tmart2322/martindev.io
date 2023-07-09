@@ -40,7 +40,7 @@ watch(isLoaded, (currentValue) => {
     const blogMenuItems = blogs.value.map((blog) => {
       return {
         label: blog.fields.blogPostName,
-        to: `/blogs/${blog.sys.id}`,
+        to: `/blog/${blog.sys.id}`,
       };
     });
     menuItems.value = [
@@ -53,7 +53,7 @@ watch(isLoaded, (currentValue) => {
         items: consultingProjectMenuItems,
       },
       {
-        label: "Blogs",
+        label: "Blog",
         items: blogMenuItems,
       },
       {

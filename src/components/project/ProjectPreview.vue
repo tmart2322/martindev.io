@@ -7,7 +7,7 @@
       },
       header: { class: 'flex flex-initial' },
       title: {
-        class: 'flex flex-initial justify-content-center',
+        class: 'flex flex-initial justify-content-center text-primary',
       },
       subtitle: {
         class: 'flex flex-initial justify-content-center',
@@ -16,7 +16,7 @@
         class: 'flex flex-initial justify-content-center',
       },
       content: {
-        class: 'flex flex-1 justify-content-center',
+        class: 'flex flex-1 justify-content-center text-left line-height-2',
       },
     }"
   >

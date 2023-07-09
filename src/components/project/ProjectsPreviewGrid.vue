@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import ProjectPreview from "@/components/Project/ProjectPreview";
+import ProjectPreview from "@/components/project/ProjectPreview";
 import { useContentful } from "@/composables/contentful";
 
 const { consultingProjects } = useContentful();

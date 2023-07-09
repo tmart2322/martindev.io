@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import ProjectsPreviewGrid from "@/components/Project/ProjectsPreviewGrid";
+import ProjectsPreviewGrid from "@/components/project/ProjectsPreviewGrid";
 </script>
