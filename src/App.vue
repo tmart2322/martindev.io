@@ -59,10 +59,6 @@ watch(isLoaded, (currentValue) => {
         label: "Blog",
         items: blogMenuItems,
       },
-      {
-        label: "About",
-        to: "/about",
-      },
     ];
   }
 });
@@ -71,10 +67,9 @@ watch(isLoaded, (currentValue) => {
 <style>
 body {
   margin: 0;
-}
-
-.router-link-active > .p-menuitem-text {
-  text-decoration: underline;
+  background-image: url("./assets/images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #content {

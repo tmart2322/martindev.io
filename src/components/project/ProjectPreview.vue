@@ -34,6 +34,7 @@
             v-for="role in props.project.fields.roles"
             :key="role"
             :value="role"
+            rounded
           ></Tag>
         </div>
         <div

@@ -1,8 +1,26 @@
 <template>
-  <div>
-    <p class="text-xl text-center mx-5">{{ welcomeText }}</p>
-    <div class="mx-4 my-5 grid">
-      <div class="col-8">
+  <div class="mx-6 my-2">
+    <div class="mx-2">
+      <h3 class="font-italic mb-0 ml-1">welcome, my name is</h3>
+      <h1 class="text-primary font-bold font-italic mt-0">TRISTAN MARTIN</h1>
+      <div class="ml-1">
+        <p>
+          <span class="text-primary-400 font-italic font-bold"
+            >Professionally</span
+          >, I have extensive experience in the Salesforce ecosystem designing
+          and developing robust integrations, solving complex business
+          requirements with automation, and managing large teams to ensure
+          quality is met throughout the engagement.
+        </p>
+        <p>
+          <span class="text-primary-400 font-italic font-bold">Personally</span
+          >, I am an avid skydiver (250 skydives and counting!), fervent
+          international traveler, and live music aficionado.
+        </p>
+      </div>
+    </div>
+    <div class="my-5 grid">
+      <div class="md:col-12 lg:col-8">
         <Card
           :class="wrapperCardClasses"
           :pt="{
@@ -20,7 +38,7 @@
           /></template>
         </Card>
       </div>
-      <div class="col-4">
+      <div class="md:col-12 lg:col-4">
         <Card
           :class="wrapperCardClasses"
           :pt="{
@@ -40,7 +58,7 @@
 <script setup>
 import ProjectsPreviewCarousel from "@/components/project/ProjectsPreviewCarousel";
 import BlogsPreview from "@/components/blog/BlogsPreview";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 const responsiveOptions = ref([
   {
@@ -52,27 +70,6 @@ const responsiveOptions = ref([
 
 const wrapperCardClasses =
   "surface-ground border-50 border-2 border-round-xl m-2 text-center";
-
-const welcomeText = ref("");
-const welcomeTextComplete =
-  "Welcome! My name is Tristan Martin and thanks for visiting my personal website. Feel free to check out my project experience, open source projects, and blog posts!";
-
-function typeText() {
-  if (welcomeText.value.length < welcomeTextComplete.length) {
-    const nextChar = welcomeTextComplete.charAt(welcomeText.value.length);
-    welcomeText.value += nextChar;
-    setTimeout(
-      typeText,
-      new Set([",", "!", "."]).has(nextChar)
-        ? 150
-        : Math.floor(Math.random() * 15) + 20
-    );
-  }
-}
-
-onMounted(() => {
-  typeText();
-});
 </script>
 
 <style scoped></style>

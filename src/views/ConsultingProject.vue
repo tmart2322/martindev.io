@@ -1,25 +1,50 @@
 <template>
-  <div v-if="project">
-    <h2>{{ project.fields.name }}</h2>
-    <h4>
+  <div v-if="project" class="my-4 lg:mx-8 md:mx-4 sm:mx-2">
+    <h2 class="text-center">{{ project.fields.name }}</h2>
+    <p class="text-center font-italic">
       {{ dateString }}
-    </h4>
-    <Card>
-      <template #title>
-        <h5>Role Overview</h5>
-      </template>
-      <template #content>
-        <div v-html="parseMarkdown(project.fields.overview)"></div>
-      </template>
-    </Card>
-    <Card>
-      <template #title>
-        <h5>Client Overview</h5>
-      </template>
-      <template #content>
-        <div v-html="parseMarkdown(project.fields.details)"></div>
-      </template>
-    </Card>
+    </p>
+    <div class="flex flex-row my-4 justify-content-center">
+      <Tag
+        severity="info"
+        v-for="role in project.fields.roles"
+        :key="role"
+        :value="role"
+        rounded
+      ></Tag>
+    </div>
+    <div class="grid">
+      <div class="md:col-12 lg:col-4">
+        <Card
+          class="border-1 surface-border border-round-md m-2 py-5 px-3"
+          :pt="{
+            title: {
+              class: 'text-primary text-center',
+            },
+          }"
+        >
+          <template #title> Summary </template>
+          <template #content>
+            <div v-html="parseMarkdown(project.fields.overview)"></div>
+          </template>
+        </Card>
+      </div>
+      <div class="md:col-12 lg:col-8">
+        <Card
+          class="border-1 surface-border border-round-md m-2 py-5 px-3"
+          :pt="{
+            title: {
+              class: 'text-primary text-center',
+            },
+          }"
+        >
+          <template #title> Details </template>
+          <template #content>
+            <div v-html="parseMarkdown(project.fields.details)"></div>
+          </template>
+        </Card>
+      </div>
+    </div>
   </div>
 </template>
 
