@@ -16,8 +16,8 @@ import { createClient } from "contentful";
 const app = createApp(App);
 
 const contentfulClientApi = createClient({
-  space: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
+  space: "5ftrbd5qemf9",
+  accessToken: "CwjGzfLI-RHfaiiisKnV4cEQLlAMt64rXM3SgA4stwk",
 });
 
 app.provide("contentfulClientApi", contentfulClientApi);
