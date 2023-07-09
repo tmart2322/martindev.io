@@ -19,9 +19,10 @@
 
 <script setup>
 import { useContentful } from "@/composables/contentful";
-import { convertDateToMonthYear } from "@/composables/sharedFunctions";
+import { useSharedFunctions } from "@/composables/sharedFunctions";
 
 const { blogs } = useContentful();
+const { convertDateToMonthYear } = useSharedFunctions();
 
 console.log(blogs);
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <Menubar :model="menuItems" :exact="true"
+    <Menubar :model="menuItems"
       ><template #start>
         <img
           alt="logo"
@@ -28,8 +28,11 @@ watch(isLoaded, (currentValue) => {
     const consultingProjectMenuItems = consultingProjects.value.map(
       (consultingProject) => {
         return {
-          label: consultingProject.fields.projectName,
-          to: `/consulting/${consultingProject.sys.id}`,
+          label: consultingProject.fields.name,
+          to: {
+            name: "consulting-project",
+            params: { consultingProjectId: consultingProject.sys.id },
+          },
         };
       }
     );

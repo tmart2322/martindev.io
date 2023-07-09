@@ -21,15 +21,13 @@
     }"
   >
     <template #title>
-      {{ props.project.fields.projectName }}
+      {{ props.project.fields.name }}
     </template>
     <template #subtitle>
       {{ dateString }}
     </template>
     <template #content>
-      <div
-        v-html="documentToHtmlString(props.project.fields.roleOverview)"
-      ></div>
+      <div v-html="parseMarkdown(props.project.fields.overview)"></div>
     </template>
     <template #footer>
       <Button
@@ -42,11 +40,11 @@
 </template>
 
 <script setup>
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { computed, defineProps } from "vue";
 import { useRouter } from "vue-router";
-import { convertDateToMonthYear } from "@/composables/sharedFunctions";
+import { useSharedFunctions } from "@/composables/sharedFunctions";
 
+const { convertDateToMonthYear, parseMarkdown } = useSharedFunctions();
 const router = useRouter();
 
 const props = defineProps({

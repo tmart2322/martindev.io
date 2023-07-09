@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home,
     meta: {
       title: "Portfolio",
@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: "/consulting/",
-    name: "Consulting Projects",
+    name: "consulting-projects",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/consulting/:consultingProjectId",
-    name: "Consulting Project",
+    name: "consulting-project",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -49,12 +49,12 @@ const routes = [
       ),
     props: true,
     meta: {
-      title: "Consulting project",
+      title: "Consulting Project",
     },
   },
   {
     path: "/blog/:blogId",
-    name: "Blog",
+    name: "blog",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

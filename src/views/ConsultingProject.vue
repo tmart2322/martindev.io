@@ -1,6 +1,6 @@
 <template>
   <div v-if="project">
-    <h2>{{ project.fields.projectName }}</h2>
+    <h2>{{ project.fields.name }}</h2>
     <h4>
       {{ dateString }}
     </h4>
@@ -9,7 +9,7 @@
         <h5>Role Overview</h5>
       </template>
       <template #content>
-        <div v-html="documentToHtmlString(project.fields.roleOverview)"></div>
+        <div v-html="parseMarkdown(project.fields.overview)"></div>
       </template>
     </Card>
     <Card>
@@ -17,18 +17,20 @@
         <h5>Client Overview</h5>
       </template>
       <template #content>
-        <div v-html="documentToHtmlString(project.fields.clientOverview)"></div>
+        <div v-html="parseMarkdown(project.fields.details)"></div>
       </template>
     </Card>
   </div>
 </template>
 
 <script setup>
-import { defineProps, inject, onMounted, ref, computed } from "vue";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { convertDateToMonthYear } from "@/composables/sharedFunctions";
+import { defineProps, inject, onMounted, ref, computed, watch } from "vue";
+import { useSharedFunctions } from "@/composables/sharedFunctions";
+import { useRoute } from "vue-router";
 
 const contentfulClientApi = inject("contentfulClientApi");
+const route = useRoute();
+const { convertDateToMonthYear, parseMarkdown } = useSharedFunctions();
 
 let project = ref(null);
 
@@ -48,8 +50,19 @@ async function getProject(consultingProjectId) {
   return await contentfulClientApi.getEntry(consultingProjectId);
 }
 
+async function loadProject(consultingProjectId) {
+  project.value = await getProject(consultingProjectId);
+}
+
+watch(
+  () => route.params.consultingProjectId,
+  async (newConsultingProjectId) => {
+    await loadProject(newConsultingProjectId);
+  }
+);
+
 onMounted(async () => {
-  project.value = await getProject(props.consultingProjectId);
+  await loadProject(props.consultingProjectId);
 });
 </script>
 

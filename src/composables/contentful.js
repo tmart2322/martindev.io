@@ -14,7 +14,7 @@ export function useContentful() {
         (item) => item.sys.contentType.sys.id === "blogPost"
       );
       consultingProjects.value = entries.items.filter(
-        (item) => item.sys.contentType.sys.id === "project"
+        (item) => item.sys.contentType.sys.id === "consultingProject"
       );
     } catch (e) {
       console.error(e);
