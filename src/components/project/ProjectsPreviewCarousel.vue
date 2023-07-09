@@ -37,6 +37,8 @@ const props = defineProps({
     default: 3,
   },
 });
+
+console.log(consultingProjects);
 </script>
 
 <style scoped></style>

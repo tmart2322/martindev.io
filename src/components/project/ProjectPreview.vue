@@ -7,7 +7,7 @@
       },
       header: { class: 'flex flex-initial' },
       title: {
-        class: 'flex flex-initial justify-content-center text-primary',
+        class: 'flex flex-initial justify-content-center',
       },
       subtitle: {
         class: 'flex flex-initial justify-content-center',
@@ -27,7 +27,20 @@
       {{ dateString }}
     </template>
     <template #content>
-      <div v-html="parseMarkdown(props.project.fields.overview)"></div>
+      <div class="flex flex-column">
+        <div class="flex justify-content-center flex-row">
+          <Tag
+            severity="info"
+            v-for="role in props.project.fields.roles"
+            :key="role"
+            :value="role"
+          ></Tag>
+        </div>
+        <div
+          class="flex"
+          v-html="parseMarkdown(props.project.fields.overview)"
+        ></div>
+      </div>
     </template>
     <template #footer>
       <Button

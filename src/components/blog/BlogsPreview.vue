@@ -23,8 +23,6 @@ import { useSharedFunctions } from "@/composables/sharedFunctions";
 
 const { blogs } = useContentful();
 const { convertDateToMonthYear } = useSharedFunctions();
-
-console.log(blogs);
 </script>
 
 <style scoped></style>

@@ -7,7 +7,7 @@
           :class="wrapperCardClasses"
           :pt="{
             title: {
-              class: 'text-primary-200',
+              class: 'text-primary',
             },
           }"
         >
@@ -25,7 +25,7 @@
           :class="wrapperCardClasses"
           :pt="{
             title: {
-              class: 'text-primary-200',
+              class: 'text-primary',
             },
           }"
         >
