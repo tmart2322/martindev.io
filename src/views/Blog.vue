@@ -4,17 +4,19 @@
       {{ blog.fields.blogPostName }}
     </h1>
     <div
-      class="line-height-3 custom-css"
+      class="line-height-3"
       v-html="documentToHtmlString(blog.fields.body)"
     ></div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, inject, onMounted, ref } from "vue";
+import { defineProps, inject, onMounted, ref, watch } from "vue";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { useRoute } from "vue-router";
 
 const contentfulClientApi = inject("contentfulClientApi");
+const route = useRoute();
 
 let blog = ref(null);
 
@@ -26,9 +28,19 @@ async function getBlog(blogId) {
   return await contentfulClientApi.getEntry(blogId);
 }
 
+async function loadBlog(blogId) {
+  blog.value = await getBlog(blogId);
+}
+
+watch(
+  () => route.params.blogId,
+  async (newBlogId) => {
+    await loadBlog(newBlogId);
+  }
+);
+
 onMounted(async () => {
-  blog.value = await getBlog(props.blogId);
-  console.log(blog.value);
+  await loadBlog(props.blogId);
 });
 </script>
 

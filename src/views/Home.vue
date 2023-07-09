@@ -7,10 +7,10 @@
         <p>
           <span class="text-primary-400 font-italic font-bold"
             >Professionally</span
-          >, I have extensive experience in the Salesforce ecosystem designing
-          and developing robust integrations, solving complex business
-          requirements with automation, and managing large teams to ensure
-          quality is met throughout the engagement.
+          >, I have extensive experience in the Salesforce ecosystem managing
+          large teams to deliver high-quality and robust solutions, designing
+          and developing robust integrations, and solving complex business
+          requirements with automation.
         </p>
         <p>
           <span class="text-primary-400 font-italic font-bold">Personally</span
