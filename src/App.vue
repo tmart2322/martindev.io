@@ -67,9 +67,22 @@ watch(isLoaded, (currentValue) => {
 <style>
 body {
   margin: 0;
-  background-image: url("./assets/images/Background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+}
+
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url("./assets/images/Background.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #content {
