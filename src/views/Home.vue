@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="my-5 grid">
-      <div class="md:col-12 lg:col-8">
+      <div class="col-12 lg:col-8">
         <Card
           :class="wrapperCardClasses"
           :pt="{
@@ -38,7 +38,7 @@
           /></template>
         </Card>
       </div>
-      <div class="md:col-12 lg:col-4">
+      <div class="col-12 lg:col-4">
         <Card
           :class="wrapperCardClasses"
           :pt="{
