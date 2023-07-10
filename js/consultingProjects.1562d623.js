@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["consultingProjects"],{1952:function(t,n,e){"use strict";e.r(n);var c=e("7a23"),s=e("45ad"),o={__name:"ConsultingProjects",setup(t){return(t,n)=>(Object(c["x"])(),Object(c["f"])("div",null,[Object(c["j"])(Object(c["K"])(s["a"]))]))}};const u=o;n["default"]=u}}]);
+//# sourceMappingURL=consultingProjects.1562d623.js.map
