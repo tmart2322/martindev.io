@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <Menubar :model="menuItems"
+    <Menubar :model="menuItems" class="border-none border-noround"
       ><template #start>
         <img
           alt="logo"

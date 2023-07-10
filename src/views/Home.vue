@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-6 my-2">
-    <div class="mx-2">
+  <div class="mx-1 md:mx-6 my-2">
+    <div class="mx-3 sm:mx-2">
       <h3 class="font-italic mb-0 ml-1">welcome, my name is</h3>
       <h1 class="text-primary font-bold font-italic mt-0">TRISTAN MARTIN</h1>
       <div class="ml-1">
@@ -19,7 +19,7 @@
         </p>
       </div>
     </div>
-    <div class="my-5 grid">
+    <div class="my-5 grid" v-if="windowWidth > 576">
       <div class="col-12 lg:col-8">
         <Card
           :class="wrapperCardClasses"
@@ -52,6 +52,14 @@
         </Card>
       </div>
     </div>
+    <div v-else>
+      <h2 class="text-primary mx-3">Consulting Projects</h2>
+      <ProjectsPreviewGrid />
+      <h2 class="text-primary mx-3">Blog Posts</h2>
+      <Card :class="wrapperCardClasses" class="mx-3">
+        <template #content><BlogsPreview /></template>
+      </Card>
+    </div>
   </div>
 </template>
 
@@ -59,6 +67,10 @@
 import ProjectsPreviewCarousel from "@/components/project/ProjectsPreviewCarousel";
 import BlogsPreview from "@/components/blog/BlogsPreview";
 import { ref } from "vue";
+import ProjectsPreviewGrid from "@/components/project/ProjectsPreviewGrid.vue";
+import { useWindowEvents } from "@/composables/userEvents";
+
+const { windowWidth } = useWindowEvents();
 
 const responsiveOptions = ref([
   {
@@ -69,7 +81,7 @@ const responsiveOptions = ref([
 ]);
 
 const wrapperCardClasses =
-  "surface-ground border-50 border-2 border-round-xl m-2 text-center";
+  "surface-ground border-50 border-2 border-round-xl my-2 mx:0 sm:mx-2 text-center";
 </script>
 
 <style scoped></style>

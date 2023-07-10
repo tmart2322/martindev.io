@@ -4,7 +4,7 @@
       {{ blog.fields.blogPostName }}
     </h1>
     <div
-      class="align-content-center line-height-3 blog-width mx-auto"
+      class="line-height-3 blog-width mx-auto"
       v-html="documentToHtmlString(blog.fields.body)"
     ></div>
   </div>
