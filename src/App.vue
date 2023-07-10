@@ -7,8 +7,27 @@
           src="@/assets/images/LogoWhite.png"
           height="40"
           class="mt-1"
-        /> </template
-    ></Menubar>
+        />
+      </template>
+      <template #end>
+        <h4 class="mr-4 cursor-pointer" v-if="windowWidth > 576">
+          Email:
+          <a
+            href="mailto:contact@martindev.io"
+            class="no-underline text-primary"
+            >contact@martindev.io</a
+          >
+        </h4>
+        <h5 class="mr-4 cursor-pointer" v-else>
+          Email:
+          <a
+            href="mailto:contact@martindev.io"
+            class="no-underline text-primary"
+            >contact@martindev.io</a
+          >
+        </h5>
+      </template>
+    </Menubar>
   </div>
   <div id="content">
     <router-view />
@@ -18,7 +37,9 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useContentful } from "@/composables/contentful";
+import { useWindowEvents } from "@/composables/userEvents";
 
+const { windowWidth } = useWindowEvents();
 const { blogs, consultingProjects, isLoaded } = useContentful();
 
 let menuItems = ref([]);
