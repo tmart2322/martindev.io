@@ -37,12 +37,23 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useContentful } from "@/composables/contentful";
-import { useWindowEvents } from "@/composables/userEvents";
+import {
+  useWindowEvents,
+  useGlobalCssVariables,
+} from "@/composables/userEvents";
 
 const { windowWidth } = useWindowEvents();
 const { blogs, consultingProjects, isLoaded } = useContentful();
+const { globalCssVariables } = useGlobalCssVariables();
 
 let menuItems = ref([]);
+
+watch(globalCssVariables, (newValue) => {
+  document.documentElement.style.setProperty(
+    "--background-opacity",
+    newValue.backgroundOpacity
+  );
+});
 
 watch(isLoaded, (currentValue) => {
   if (currentValue) {
@@ -86,6 +97,10 @@ watch(isLoaded, (currentValue) => {
 </script>
 
 <style>
+:root {
+  --background-opacity: 1;
+}
+
 body {
   margin: 0;
 }
@@ -104,6 +119,7 @@ body:before {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  opacity: var(--background-opacity);
 }
 
 #content {

@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, reactive, ref } from "vue";
 
 export function useWindowEvents() {
   const windowWidth = ref(0);
@@ -16,4 +16,12 @@ export function useWindowEvents() {
   onUnmounted(() => window.removeEventListener("resize", handleWindowResize));
 
   return { windowWidth, windowHeight };
+}
+
+const globalCssVariables = reactive({
+  backgroundOpacity: "1",
+});
+
+export function useGlobalCssVariables() {
+  return { globalCssVariables };
 }
