@@ -1,16 +1,17 @@
 <template>
-  <div v-if="project" class="my-4 lg:mx-8 md:mx-4 sm:mx-2">
+  <div v-if="project" class="my-4">
     <h2 class="text-center">{{ project.fields.name }}</h2>
     <p class="text-center font-italic">
       {{ dateString }}
     </p>
-    <div class="flex flex-row my-4 justify-content-center">
+    <div class="flex flex-row my-4 justify-content-center gap-2">
       <Tag
         severity="info"
         v-for="role in project.fields.roles"
         :key="role"
         :value="role"
         rounded
+        class="px-4 p-2 text-xs md:text-sm"
       ></Tag>
     </div>
     <div class="grid">

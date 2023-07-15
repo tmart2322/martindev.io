@@ -1,5 +1,5 @@
 <template>
-  <div v-if="blog" class="mx-4 sm:mx-6 md:mx-8 mt-4">
+  <div v-if="blog" class="mt-4 mb-6 mx-1 sm:mx-2 md:mx-4">
     <h1 class="text-center mb-5 text-primary-400">
       {{ blog.fields.blogPostName }}
     </h1>

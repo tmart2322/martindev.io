@@ -7,10 +7,12 @@ import Card from "primevue/card";
 import Button from "primevue/button";
 import Carousel from "primevue/carousel";
 import Tag from "primevue/tag";
-import "primeicons/primeicons.css";
-import "primevue/resources/themes/viva-dark/theme.css";
 import "primeflex/primeflex.css";
+import "primeicons/primeicons.css";
+import "primevue/resources/primevue.min.css";
+import "primevue/resources/themes/viva-dark/theme.css";
 import "./assets/css/primeVueOverrides.css";
+import Ripple from "primevue/ripple";
 import { createClient } from "contentful";
 
 const app = createApp(App);
@@ -21,6 +23,8 @@ const contentfulClientApi = createClient({
 });
 
 app.provide("contentfulClientApi", contentfulClientApi);
+
+app.directive("ripple", Ripple);
 
 const DEFAULT_TITLE = "Tristan Martin";
 router.afterEach((to) => {

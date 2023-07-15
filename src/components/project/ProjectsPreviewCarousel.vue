@@ -4,7 +4,6 @@
     :numVisible="props.numVisible"
     :numScroll="props.numScroll"
     :responsiveOptions="props.responsiveOptions"
-    :showIndicators="false"
   >
     <template #item="project">
       <div class="h-full flex">

@@ -28,13 +28,14 @@
     </template>
     <template #content>
       <div class="flex flex-column">
-        <div class="flex justify-content-center flex-row">
+        <div class="flex justify-content-center flex-row flex-wrap gap-2">
           <Tag
             severity="info"
             v-for="role in props.project.fields.roles"
             :key="role"
             :value="role"
             rounded
+            class="px-4 p-2 text-xs md:text-sm"
           ></Tag>
         </div>
         <div
