@@ -10,26 +10,18 @@
         />
       </template>
       <template #end>
-        <h4 class="mr-4 cursor-pointer" v-if="windowWidth > 576">
+        <p class="mr-4 md:mr-6 lg:mr-8 cursor-pointer font-bolder">
           Email:
           <a
             href="mailto:contact@martindev.io"
             class="no-underline text-primary"
             >contact@martindev.io</a
           >
-        </h4>
-        <h5 class="mr-4 cursor-pointer" v-else>
-          Email:
-          <a
-            href="mailto:contact@martindev.io"
-            class="no-underline text-primary"
-            >contact@martindev.io</a
-          >
-        </h5>
+        </p>
       </template>
     </Menubar>
   </div>
-  <div id="content">
+  <div id="content" class="py-2 px-4 md:px-6 lg:px-8">
     <router-view />
   </div>
 </template>
@@ -37,12 +29,8 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useContentful } from "@/composables/contentful";
-import {
-  useWindowEvents,
-  useGlobalCssVariables,
-} from "@/composables/userEvents";
+import { useGlobalCssVariables } from "@/composables/userEvents";
 
-const { windowWidth } = useWindowEvents();
 const { blogs, consultingProjects, isLoaded } = useContentful();
 const { globalCssVariables } = useGlobalCssVariables();
 
@@ -122,7 +110,8 @@ body:before {
   opacity: var(--background-opacity);
 }
 
-#content {
-  padding: 1em;
+#nav {
+  position: sticky;
+  top: 0;
 }
 </style>
