@@ -58,12 +58,12 @@
     </div>
   </div>
   <div v-else>
-    <h2 class="text-primary mx-3">Consulting Projects</h2>
+    <h2 class="text-primary mx-3">Blog Posts</h2>
     <Card :class="wrapperCardClasses" class="mx-3">
       <template #content><BlogsPreview /></template>
     </Card>
+    <h2 class="text-primary mx-3">Consulting Projects</h2>
     <ProjectsPreviewGrid :maxDisplay="1" />
-    <h2 class="text-primary mx-3">Blog Posts</h2>
   </div>
 </template>
 
