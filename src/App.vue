@@ -21,7 +21,7 @@
       </template>
     </Menubar>
   </div>
-  <div id="content" class="py-2 px-4 md:px-6 lg:px-8">
+  <div id="content" class="py-2 px-4 md:px-6 lg:px-8 mb-4">
     <router-view />
   </div>
 </template>
