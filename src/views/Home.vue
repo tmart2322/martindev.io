@@ -63,7 +63,7 @@
       <template #content><BlogsPreview /></template>
     </Card>
     <h2 class="text-primary mx-3">Consulting Projects</h2>
-    <ProjectsPreviewGrid :maxDisplay="1" />
+    <ProjectsPreviewGrid class="mx-1" :maxDisplay="1" />
   </div>
 </template>
 
