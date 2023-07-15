@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="nav" class="z-5">
     <Menubar :model="menuItems" class="border-none border-noround"
       ><template #start>
         <img

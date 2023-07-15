@@ -25,3 +25,19 @@ const globalCssVariables = reactive({
 export function useGlobalCssVariables() {
   return { globalCssVariables };
 }
+
+export function useBreakpoints() {
+  const breakpoints = reactive({
+    sm: 576,
+    md: 786,
+    lg: 992,
+    xl: 1200,
+    xxl: 1600,
+  });
+
+  const getBreakpointText = (breakpoint) => {
+    return `${breakpoint}px`;
+  };
+
+  return { breakpoints, getBreakpointText };
+}

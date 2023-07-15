@@ -18,8 +18,11 @@
       </p>
     </div>
   </div>
-  <div class="my-5 grid" v-if="windowWidth > 576">
-    <div class="col-12 lg:col-8">
+  <div class="my-5 grid" v-if="windowWidth > breakpoints.sm">
+    <div
+      class="col-12 lg:col-8"
+      :class="windowWidth < breakpoints.lg ? 'flex-order-1' : 'flex-order-0'"
+    >
       <Card
         :class="wrapperCardClasses"
         :pt="{
@@ -37,7 +40,10 @@
         /></template>
       </Card>
     </div>
-    <div class="col-12 lg:col-4">
+    <div
+      class="col-12 lg:col-4"
+      :class="windowWidth < breakpoints.lg ? 'flex-order-0' : 'flex-order-1'"
+    >
       <Card
         :class="wrapperCardClasses"
         :pt="{
@@ -53,11 +59,11 @@
   </div>
   <div v-else>
     <h2 class="text-primary mx-3">Consulting Projects</h2>
-    <ProjectsPreviewGrid :maxDisplay="1" />
-    <h2 class="text-primary mx-3">Blog Posts</h2>
     <Card :class="wrapperCardClasses" class="mx-3">
       <template #content><BlogsPreview /></template>
     </Card>
+    <ProjectsPreviewGrid :maxDisplay="1" />
+    <h2 class="text-primary mx-3">Blog Posts</h2>
   </div>
 </template>
 
@@ -66,13 +72,14 @@ import ProjectsPreviewCarousel from "@/components/project/ProjectsPreviewCarouse
 import BlogsPreview from "@/components/blog/BlogsPreview";
 import { ref } from "vue";
 import ProjectsPreviewGrid from "@/components/project/ProjectsPreviewGrid.vue";
-import { useWindowEvents } from "@/composables/userEvents";
+import { useBreakpoints, useWindowEvents } from "@/composables/userEvents";
 
 const { windowWidth } = useWindowEvents();
+const { breakpoints, getBreakpointText } = useBreakpoints();
 
 const responsiveOptions = ref([
   {
-    breakpoint: "1600px",
+    breakpoint: getBreakpointText(breakpoints.xxl),
     numVisible: 1,
     numScroll: 1,
   },
