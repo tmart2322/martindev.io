@@ -79,6 +79,11 @@ watch(isLoaded, (currentValue) => {
         label: "Blog",
         items: blogMenuItems,
       },
+      {
+        label: "Resume",
+        url: "https://www.dropbox.com/s/4qo09rv5ls5u75u/TristanMartinResumeCurrent.pdf?dl=0",
+        target: "_blank",
+      },
     ];
   }
 });
