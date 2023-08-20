@@ -4,7 +4,7 @@
     <p class="text-center font-italic">
       {{ dateString }}
     </p>
-    <div class="flex flex-row my-4 justify-content-center gap-2">
+    <div class="flex justify-content-center flex-row flex-wrap gap-2 my-4">
       <Tag
         severity="info"
         v-for="role in project.fields.roles"
