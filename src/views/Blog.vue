@@ -1,12 +1,14 @@
 <template>
   <div v-if="blog" class="mt-4 mx-1 sm:mx-2 md:mx-4">
-    <h1 class="text-center mb-5 text-primary-400">
-      {{ blog.fields.blogPostName }}
-    </h1>
-    <div
-      class="line-height-3 blog-wrapper mx-auto text-sm sm:text-base"
-      v-html="documentToHtmlString(blog.fields.body)"
-    ></div>
+    <div class="blog-wrapper mx-auto">
+      <h1 class="text-center mb-5 text-primary-400">
+        {{ blog.fields.blogPostName }}
+      </h1>
+      <div
+        class="line-height-3 text-sm sm:text-base"
+        v-html="documentToHtmlString(blog.fields.body, options)"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ import { defineProps, inject, onMounted, onUnmounted, ref, watch } from "vue";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { useRoute } from "vue-router";
 import { useGlobalCssVariables } from "@/composables/userEvents";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 const contentfulClientApi = inject("contentfulClientApi");
 const route = useRoute();
@@ -25,6 +28,16 @@ let blog = ref(null);
 const props = defineProps({
   blogId: String,
 });
+
+const options = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const url = `https:${node.data.target.fields.file.url}`;
+      const alt = node.data.target.fields.title;
+      return `<div class="contentful-image" ><img alt="${alt}" src="${url}" style="max-width: 100%" /></div>`;
+    },
+  },
+};
 
 async function getBlog(blogId) {
   return await contentfulClientApi.getEntry(blogId);
