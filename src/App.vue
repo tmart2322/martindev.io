@@ -81,7 +81,7 @@ watch(isLoaded, (currentValue) => {
       },
       {
         label: "Resume",
-        url: "https://www.dropbox.com/s/4qo09rv5ls5u75u/TristanMartinResumeCurrent.pdf?dl=0",
+        url: "https://www.dropbox.com/scl/fi/18ixmztg2ryxc42sd0g5d/TristanMartinResumeCurrent.pdf?rlkey=er2xryhzl6m1tusogt37qjeua&st=2k170ik8&dl=0",
         target: "_blank",
       },
     ];
